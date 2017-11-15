@@ -4,7 +4,7 @@
   </div>
 
 
-  <div *ngIf="showWarning" style="position:relative; z-index: 100" class="alert alert-warning">
+  <div *ngIf="showWarning" style="position:relative; z-index: 1000" class="alert alert-warning">
     <div>
       Daten wurden nicht gespeichert! Trotzdem Maske verlassen?
     </div>
@@ -19,5 +19,27 @@
   <div class="content">
     <p>Id: {{id}}</p>
     <p>ShowDetails: {{showDetails}}</p>
+
+
+  <form *ngIf="flight">
+    <div class="form-group">
+      <label>Id:</label>
+      <input [(ngModel)]="flight.id" name="id" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Date:</label>
+      <input [(ngModel)]="flight.date" name="date" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>From:</label>
+      <input [(ngModel)]="flight.from" name="from" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>To:</label>
+      <input [(ngModel)]="flight.to" name="to" class="form-control">
+    </div>
+
+  </form>
   </div>
 </div>

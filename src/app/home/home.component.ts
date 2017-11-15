@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
-  // x.userName
   get userName() {
     return this.authService.userName;
   }

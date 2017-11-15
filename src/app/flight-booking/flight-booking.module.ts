@@ -12,6 +12,7 @@ import { FlightEditComponent } from './flight-edit/flight-edit.component';
 import { FlightBookingComponent } from './flight-booking.component';
 
 import { AuthGuard } from '../shared/auth/auth.guard';
+import { FlightResolver } from "./flight-edit/flight.resolver";
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { AuthGuard } from '../shared/auth/auth.guard';
     FlightBookingComponent
 ],
   providers: [
+    FlightResolver,
     FlightService,
     AuthGuard
   ],

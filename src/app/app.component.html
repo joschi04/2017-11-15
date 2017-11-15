@@ -13,6 +13,12 @@
 
         <router-outlet name="aux"></router-outlet>
 
+        <div style="position: fixed; z-index: 950" class="loading-indicator" *ngIf="showLoadingIndicator">
+          <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+          </div>
+        </div>
 
       </div>
   </div>
