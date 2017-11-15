@@ -31,20 +31,19 @@
             </a>
         </li>
     -->
-            <!--
+
             <li routerLinkActive="active">
-            <a>
+            <a [routerLink]="[{outlets: {aux: 'basket' }}]">
                 <i class="ti-shopping-cart"></i>
                 <p>Basket</p>
             </a>
             </li>
             <li routerLinkActive="active">
-            <a>
+            <a [routerLink]="[{outlets: {aux: null }}]">
                 <i class="ti-close"></i>
                 <p>Hide Basket</p>
             </a>
             </li>
-        -->
 
     </ul>
 </div>

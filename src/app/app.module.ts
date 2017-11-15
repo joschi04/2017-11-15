@@ -1,3 +1,4 @@
+import { BasketComponent } from './basket/basket.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
@@ -26,7 +27,8 @@ import { APP_ROUTES } from './app.routes';
     AppComponent,
     SidebarComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    BasketComponent
   ],
   providers: [
     // { provide: FlightService, useClass: FlightService}
