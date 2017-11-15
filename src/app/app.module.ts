@@ -15,13 +15,14 @@ import { FlightBookingModule } from './flight-booking/flight-booking.module';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
-
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     FlightBookingModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    SharedModule
   ],
   declarations: [
     AppComponent,

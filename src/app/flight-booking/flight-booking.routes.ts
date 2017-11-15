@@ -3,11 +3,14 @@ import { Routes } from '@angular/router';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { PassengerSearchComponent } from './passenger-search/passenger-search.component';
 import { FlightEditComponent } from './flight-edit/flight-edit.component';
+import { AuthGuard } from '../shared/auth/auth.guard';
+import { CanDeactivateGuard } from '../shared/can-deactivate/can-deactivate.guard';
 
 export const FLIGHT_BOOKING_ROUTES: Routes = [
   {
     path: 'flight-booking',
     component: FlightBookingComponent,
+    canActivate:[AuthGuard],
     children: [
       {
         path: 'flight-search',
@@ -19,7 +22,8 @@ export const FLIGHT_BOOKING_ROUTES: Routes = [
       },
       {
         path: 'flight-edit/:id',
-        component: FlightEditComponent
+        component: FlightEditComponent,
+        canDeactivate: [CanDeactivateGuard]
       }
     ]
   }

@@ -11,6 +11,8 @@ import { FLIGHT_BOOKING_ROUTES } from './flight-booking.routes';
 import { FlightEditComponent } from './flight-edit/flight-edit.component';
 import { FlightBookingComponent } from './flight-booking.component';
 
+import { AuthGuard } from '../shared/auth/auth.guard';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { FlightBookingComponent } from './flight-booking.component';
     FlightBookingComponent
 ],
   providers: [
-    FlightService
+    FlightService,
+    AuthGuard
   ],
   exports: [
     FlightSearchComponent
