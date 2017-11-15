@@ -13,16 +13,20 @@ import { FlightService } from './flight-booking/flight-search/flight.service';
 import { CityPipe } from './shared/pipes/city.pipe';
 import { FlightBookingModule } from './flight-booking/flight-booking.module';
 import { HomeComponent } from './home/home.component';
-import { RouterModule } from '@angular/router';
+import { PreloadAllModules, RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 import { SharedModule } from './shared/shared.module';
+import { CustomPreloadingStrategy } from './shared/preload/custom-preloading-strategy';
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
-    FlightBookingModule,
-    RouterModule.forRoot(APP_ROUTES),
-    SharedModule
+    // FlightBookingModule,
+    RouterModule.forRoot(
+      APP_ROUTES, {
+        preloadingStrategy: CustomPreloadingStrategy
+      }),
+    SharedModule.forRoot()
   ],
   declarations: [
     AppComponent,
