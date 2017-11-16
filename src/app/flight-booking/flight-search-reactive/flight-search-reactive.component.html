@@ -8,6 +8,15 @@
 
 <form novalidate [formGroup]="filter">
 
+  <h1>Dynamic Form</h1>
+
+  <div *ngFor="let item of metadata" class="form-group">
+    <label>{{item.label}}</label>
+    <input *ngIf="item.type == 'text'" [formControlName]="item.name" class="form-control">
+    <input *ngIf="item.type == 'checkbox'" type="checkbox" [formControlName]="item.name" class="form-control">
+  </div>
+
+  <h1>Static Form</h1>
     <div class="form-group">
         <label>From</label>
         <input class="form-control" formControlName="from">

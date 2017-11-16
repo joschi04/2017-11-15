@@ -12,7 +12,13 @@ import { FlightService } from '../flight-search/flight.service';
 export class FlightSearchReactiveComponent {
 
     public selectedFlight: Flight;
+
     public filter: FormGroup;
+
+    public metadata = [
+      { label: 'From', name: 'from', type: 'text' },
+      { label: 'To', name: 'to', type: 'text' }
+    ];
 
     constructor(private flightService: FlightService,
                 private fb: FormBuilder) {

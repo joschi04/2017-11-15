@@ -25,7 +25,7 @@ export class FlightService {
   }
 
   find(from: string, to: string): Observable<Flight[]> {
-    let url = 'http://www.angular.at/api/secureflight/byRoute';
+    let url = 'http://www.angular.at/api/flight';
 
     let params = new HttpParams()
       .set('from', from)
@@ -33,7 +33,7 @@ export class FlightService {
 
     let headers = new HttpHeaders()
       .set('Accept', 'application/json')
-      .set('Authorization', 'Bearer ' + this.oauthService.getAccessToken());
+      //.set('Authorization', 'Bearer ' + this.oauthService.getAccessToken());
 
     return this.http.get<Flight[]>(url, {params, headers});
 

@@ -11,6 +11,8 @@ export class PassengerSearchComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
+  activePane: number = 2;
+
   ngOnInit() {
     console.debug('userName', this.authService.userName);
   }

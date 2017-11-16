@@ -55,7 +55,6 @@ export class FlightSearchMultistopComponent {
     public search(): void {
 
         const value = this.filter.value;
-
         console.info('value', value);
 
         this.flightService

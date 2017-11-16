@@ -16,6 +16,7 @@ import { FlightResolver } from "./flight-edit/flight.resolver";
 import { TranslateModule } from '@ngx-translate/core';
 import { FlightSearchMultistopComponent } from './flight-search-multistop/flight-search-multistop.component';
 import { FlightSearchReactiveComponent } from './flight-search-reactive/flight-search-reactive.component';
+import { FlightLookaheadComponent } from './lookahead/flight-lookahead.component';
 
 @NgModule({
   imports: [
@@ -33,8 +34,8 @@ import { FlightSearchReactiveComponent } from './flight-search-reactive/flight-s
     FlightEditComponent,
     FlightBookingComponent,
     FlightSearchMultistopComponent,
-    FlightSearchReactiveComponent
-
+    FlightSearchReactiveComponent,
+    FlightLookaheadComponent
 ],
   providers: [
     FlightResolver,
