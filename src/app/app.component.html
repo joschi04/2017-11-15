@@ -1,10 +1,15 @@
+
 <div class="wrapper">
+
+
+
   <div class="sidebar" data-background-color="white" data-active-color="danger">
       <sidebar-cmp></sidebar-cmp>
   </div>
   <div class="main-panel">
       <navbar-cmp></navbar-cmp>
       <div class="content">
+
 
         <!--
           <flight-search></flight-search>
@@ -13,14 +18,20 @@
 
         <router-outlet name="aux"></router-outlet>
 
-        <div style="position: fixed; z-index: 950" class="loading-indicator" *ngIf="showLoadingIndicator">
-          <div class="spinner">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>
-          </div>
-        </div>
 
       </div>
   </div>
+
+
+
+
 </div>
 
+
+
+<div style="z-index: 50" class="loading-indicator" *ngIf="showLoadingIndicator">
+  <div class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+</div>

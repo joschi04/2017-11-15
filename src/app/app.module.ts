@@ -2,7 +2,7 @@ import { BasketComponent } from './basket/basket.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -17,16 +17,38 @@ import { PreloadAllModules, RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 import { SharedModule } from './shared/shared.module';
 import { CustomPreloadingStrategy } from './shared/preload/custom-preloading-strategy';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { HttpModule } from '@angular/http';
+
+export function createLoader(http: HttpClient) {
+  return new TranslateHttpLoader (http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   imports: [
     BrowserModule,
-    HttpClientModule,
+    HttpClientModule, // <-- Neues Http-Modul, ab 4.3
+    HttpModule, // <-- Altes HTTP-Moduls, bis Angular 4.3
     // FlightBookingModule,
+    OAuthModule.forRoot(),
     RouterModule.forRoot(
-      APP_ROUTES, {
+      APP_ROUTES,
+      {
         preloadingStrategy: CustomPreloadingStrategy
       }),
-    SharedModule.forRoot()
+    SharedModule.forRoot(),
+
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createLoader,
+        deps: [HttpClient]
+      }
+    }),
+
   ],
   declarations: [
     AppComponent,

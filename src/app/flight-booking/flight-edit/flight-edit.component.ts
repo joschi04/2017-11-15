@@ -49,4 +49,7 @@ export class FlightEditComponent implements OnInit, CanDeactivateComponent {
     });
   }
 
+  delete() {
+    console.debug('just a dummy');
+  }
 }

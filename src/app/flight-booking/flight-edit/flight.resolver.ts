@@ -3,6 +3,7 @@ import { Flight } from '../../entities/flight';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { FlightService } from '../flight-search/flight.service';
+import { delay } from 'rxjs/operators';
 
 @Injectable()
 export class FlightResolver implements Resolve<Flight> {
@@ -12,7 +13,7 @@ export class FlightResolver implements Resolve<Flight> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Flight>  {
     let id = route.params['id'];
-    return this.flightService.findById(id).delay(5000);
+    return this.flightService.findById(id); //.pipe(delay(3000));
   }
 
 }
