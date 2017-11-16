@@ -15,11 +15,8 @@
       <div class="content">
         <ul class="list-group">
 
-          <li class="list-group-item">
-            <p>Hamburg - Graz</p>
-          </li>
-          <li class="list-group-item">
-            <p>Graz - Hamburg</p>
+          <li class="list-group-item" *ngFor="let f of flights">
+            <p>{{f.from}} - {{f.to}}</p>
           </li>
 
         </ul>

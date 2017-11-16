@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { TabbedPaneComponent } from '../tabbed-pane/tabbed-pane.component';
+import { TabbedPaneService } from '../tabbed-pane/tabbed-pane.service';
 
 @Component({
   selector: 'tab',
@@ -7,16 +8,16 @@ import { TabbedPaneComponent } from '../tabbed-pane/tabbed-pane.component';
   styleUrls: ['./tab.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class TabComponent implements OnInit {
-
+export class TabComponent {
   @Input() title: string;
   @Input() id: number;
   @Input() active: boolean = false;
 
-  constructor(private tabbedPane: TabbedPaneComponent) {
+  constructor(private service: TabbedPaneService) {
+    this.service.activateId = 17;
   }
 
-  ngOnInit() {
-    this.tabbedPane.register(this);
+  get activeId() {
+    return this.service.activateId;
   }
 }

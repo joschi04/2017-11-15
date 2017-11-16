@@ -22,6 +22,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { HttpModule } from '@angular/http';
+import { FlightEventService } from "./flight-event.service";
 
 export function createLoader(http: HttpClient) {
   return new TranslateHttpLoader (http, './assets/i18n/', '.json');
@@ -58,6 +59,7 @@ export function createLoader(http: HttpClient) {
     BasketComponent
   ],
   providers: [
+    FlightEventService
     // { provide: FlightService, useClass: FlightService}
     // FlightService
   ],

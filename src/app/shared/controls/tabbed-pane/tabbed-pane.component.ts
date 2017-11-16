@@ -1,25 +1,38 @@
-import { AfterContentInit, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import {
+  AfterContentInit, Component, ContentChildren, EventEmitter, Input, OnInit, Output, QueryList,
+  ViewEncapsulation
+} from '@angular/core';
 import { TabComponent } from '../tab/tab.component';
+import { TabbedPaneService } from './tabbed-pane.service';
 
 @Component({
   selector: 'tabbed-pane',
   templateUrl: './tabbed-pane.component.html',
   styleUrls: ['./tabbed-pane.component.css'],
   encapsulation: ViewEncapsulation.None,
-  exportAs: 'tabbedPane'
+  exportAs: 'tabbedPane',
+  providers: [TabbedPaneService]
 })
 export class TabbedPaneComponent implements OnInit, AfterContentInit {
 
   @Input() activeId: number;
   @Output() activeIdChange = new EventEmitter<number>();
 
-  tabs: TabComponent[] = [];
+  @ContentChildren(TabComponent)
+  tabList: QueryList<TabComponent>;
 
-  constructor() { }
+  constructor(private service: TabbedPaneService) {
 
-  register(tab: TabComponent) {
-    this.tabs.push(tab);
   }
+
+  get tabs() {
+    if (!this.tabList) {
+      return [];
+    }
+    return this.tabList.toArray();
+  }
+
+
 
   ngAfterContentInit(): void {
     this.activate(this.activeId);
@@ -30,6 +43,7 @@ export class TabbedPaneComponent implements OnInit, AfterContentInit {
     this.tabs.forEach(tab => {
       tab.active = tab.id == this.activeId;
     });
+    this.service.activateId = id;
     this.activeIdChange.next(id);
   }
 
